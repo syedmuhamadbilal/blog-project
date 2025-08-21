@@ -124,13 +124,8 @@ export class ConfigurationService {
       throw new Error("Failed to delete file");
     }
   }
-  async getFilePreview(fieldId: string) {
-    try {
-      await this.bucket.getFile(config.appWriteBucketId, fieldId);
-    } catch (error) {
-      console.log(error);
-      throw new Error("Failed to get file");
-    }
+  getFilePreview(fileId: string) {
+    return this.bucket.getFilePreview(config.appWriteBucketId, fileId);
   }
 }
 
